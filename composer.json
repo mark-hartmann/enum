@@ -1,0 +1,20 @@
+{
+    "name": "hartmann/enum",
+    "description": "Simple C# inspired Enum",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Hartmann",
+            "email": "contact@mark-hartmann.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hartmann\\Enum\\": "src\\"
+        }
+    },
+    "require": {
+        "ext-json": "*"
+    }
+}
