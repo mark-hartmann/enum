@@ -10,10 +10,10 @@ use Hartmann\Enum\Enum;
  *
  * @package Hartmann\Enum\Tests
  *
- * @method static \AnimalEnum Dog()
- * @method static \AnimalEnum Cat()
- * @method static \AnimalEnum Horse()
- * @method static \AnimalEnum Fish()
+ * @method static AnimalEnum Dog()
+ * @method static AnimalEnum Cat()
+ * @method static AnimalEnum Horse()
+ * @method static AnimalEnum Fish()
  */
 class AnimalEnum extends Enum
 {
