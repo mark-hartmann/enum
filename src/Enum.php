@@ -23,7 +23,7 @@ abstract class Enum implements EnumInterface
     /**
      * Enum constructor.
      *
-     * @param mixed $value
+     * @param static|mixed $value Either another instance of static or a value
      *
      * @throws \InvalidArgumentException If unknown value is given
      */
@@ -43,9 +43,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Retrieves an array of the values of the constants
-     *
-     * @return mixed[]
+     * {@inheritDoc}
      */
     public static function getValues(): array
     {
@@ -53,9 +51,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Retrieves an array of the names of the constants
-     *
-     * @return string[]
+     * {@inheritDoc}
      */
     public static function getNames(): array
     {
@@ -63,9 +59,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Retrieves an array containing the names of the constants and their corresponding values
-     *
-     * @return mixed[]
+     * {@inheritDoc}
      */
     public static function toArray(): array
     {
@@ -84,11 +78,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Returns a Boolean telling whether a given value exists
-     *
-     * @param mixed $value
-     *
-     * @return bool
+     * {@inheritDoc}
      */
     public static function isDefined($value): bool
     {
@@ -96,10 +86,15 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * @param string $name
-     * @param array  $arguments
+     * This is a convenient way to access the enum constants. If the constant does not exist, an Exception gets thrown.
+     * For a proper auto-completion the enum constants should be documented as static method
+     *
+     * @param string $name      The constants name, should be declared protected or private
+     * @param array  $arguments Not required in this implementation
      *
      * @return static
+     * @throws \BadMethodCallException When attempting to call an unknown constant
+     * @example MyEnum::ConstantName()
      */
     public static function __callStatic(string $name, array $arguments = null): EnumInterface
     {
@@ -112,9 +107,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Retrieves the value of the constant
-     *
-     * @return mixed
+     * {@inheritDoc}
      */
     public function getValue()
     {
@@ -122,9 +115,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Retrieves the name of the constant
-     *
-     * @return string
+     * {@inheritDoc}
      */
     public function getName(): string
     {
@@ -132,11 +123,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Returns a Boolean indicating whether this instance is equal to a specified enum object
-     *
-     * @param \Hartmann\Enum\EnumInterface $enum
-     *
-     * @return bool
+     * {@inheritDoc}
      */
     public function equals(EnumInterface $enum): bool
     {
@@ -144,9 +131,7 @@ abstract class Enum implements EnumInterface
     }
 
     /**
-     * Converts the value of this instance to its equivalent string representation
-     *
-     * @return string
+     * {@inheritDoc}
      */
     public function __toString(): string
     {
