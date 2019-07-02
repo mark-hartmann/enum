@@ -14,7 +14,15 @@
             "Hartmann\\Enum\\": "src\\"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Hartmann\\Enum\\Tests\\": "tests\\"
+        }
+    },
     "require": {
         "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
     }
 }
