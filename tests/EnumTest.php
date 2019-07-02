@@ -3,6 +3,7 @@
 namespace Hartmann\Enum\Tests;
 
 
+use BadMethodCallException;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
@@ -91,5 +92,12 @@ class EnumTest extends TestCase
         $this->assertEquals('2', (string)AnimalEnum::Cat());
         $this->assertEquals('4', (string)AnimalEnum::Horse());
         $this->assertEquals('blubb', (string)AnimalEnum::Fish());
+    }
+
+    public function testCallStaticMethod(): void
+    {
+        $this->expectException(BadMethodCallException::class);
+
+        AnimalEnum::Ant();
     }
 }
