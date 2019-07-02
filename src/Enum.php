@@ -6,6 +6,7 @@ namespace Hartmann\Enum;
 use BadMethodCallException;
 use InvalidArgumentException;
 use ReflectionClass;
+use ReflectionException;
 use function array_key_exists;
 
 /**
@@ -73,7 +74,7 @@ abstract class Enum implements EnumInterface
         if (!isset(static::$cache[$class])) {
             try {
                 $reflection = new ReflectionClass($class);
-            } catch (\ReflectionException $e) {
+            } catch (ReflectionException $e) {
                 return [];
             }
             static::$cache[$class] = $reflection->getConstants();
